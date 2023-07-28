@@ -1,0 +1,23 @@
+@page
+@model LoginModel
+@{
+    
+}
+<form class="px-4 py-3" method="post">
+    <div class="form-group">
+      <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+      <label for="exampleDropdownFormEmail1">Username
+          <input type="text" class="form-control" asp-for="Username" id="exampleDropdownFormuser">
+      </label>
+      <span class="text-danger" asp-validation-for="Username">
+      </span>
+      <label for="exampleDropdownFormPassword">Password
+        <input type="password" class="form-control" asp-for="Password" id="exampleDropdownFormPassword">
+      </label>
+      
+      <span class="text-danger" asp-validation-for="Password">
+      </span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </form>
