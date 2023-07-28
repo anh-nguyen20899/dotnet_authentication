@@ -27,10 +27,10 @@ public class LoginModel : PageModel
                 var identity = new ClaimsIdentity(claims,"MyCookieAuth");
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync("MyCookieAuth", principal);
-                return RedirectToPage("/index");
+                return RedirectToPage("/Index");
             }
             
-        return RedirectToPage("/index");
+        return RedirectToPage("/Index");
     }
 }
 public class Credential 
