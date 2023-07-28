@@ -4,6 +4,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication().AddCookie("MyCookieAuth", options =>
 {
     options.Cookie.Name = "MyCookieAuth";
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("HRDepartment", 
+    policy => policy.RequireClaim("Department","HR"));
 });
 builder.Services.AddRazorPages();
 
@@ -22,6 +29,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
