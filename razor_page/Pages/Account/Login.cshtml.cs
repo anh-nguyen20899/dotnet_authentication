@@ -28,7 +28,7 @@ public class LoginModel : PageModel
                 var identity = new ClaimsIdentity(claims,"MyCookieAuth");
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync("MyCookieAuth", principal);
-                return RedirectToPage("/Index");
+                return RedirectToPage("/HumanResource");
             }
             
         return RedirectToPage("/Index");
