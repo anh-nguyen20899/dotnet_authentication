@@ -23,11 +23,12 @@ public class LoginModel : PageModel
                 { 
                     new Claim(ClaimTypes.Name,"admin"),
                     new Claim(ClaimTypes.Email,"admin@mywebsite.com"),
+                    new Claim("Department","HR"),
                 };
                 var identity = new ClaimsIdentity(claims,"MyCookieAuth");
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync("MyCookieAuth", principal);
-                return RedirectToPage("/Index");
+                return RedirectToPage("/HumanResource");
             }
             
         return RedirectToPage("/Index");
